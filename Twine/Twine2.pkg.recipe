@@ -35,8 +35,8 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/App/nw/Twine/osx64/%NAME%.app</string>
+				<key>app_path</key>
+				<string>%RECIPE_CACHE_DIR%/App/*.app</string>
 			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
