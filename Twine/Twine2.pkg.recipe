@@ -1,46 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.2 (https://github.com/homebysix/recipe-robot)</string>
-	<key>Description</key>
-	<string>Downloads the latest version of Twine 2 and creates a package.</string>
-	<key>Identifier</key>
-	<string>com.github.denmoff.pkg.Twine2</string>
-	<key>Input</key>
-	<dict>
-		<key>BUNDLE_ID</key>
-		<string>org.pythonmac.unspecified.Twine</string>
-		<key>NAME</key>
-		<string>Twine</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>0.6.1</string>
-	<key>ParentRecipe</key>
-	<string>com.github.denmoff.download.Twine2</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/App/nw/Twine/osx64/Twine.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>CFBundleVersion</string>
-			</dict>
-			<key>Processor</key>
-			<string>Versioner</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>app_path</key>
-				<string>%RECIPE_CACHE_DIR%/App/*.app</string>
-			</dict>
-			<key>Processor</key>
-			<string>AppPkgCreator</string>
-		</dict>
-	</array>
-</dict>
+    <dict>
+        <key>Description</key>
+        <string>Downloads the latest version of Twine 2 and creates a package.</string>
+        <key>Identifier</key>
+        <string>com.github.denmoff.pkg.Twine2</string>
+        <key>Input</key>
+        <dict>
+            <key>NAME</key>
+            <string>Twine</string>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.6.1</string>
+        <key>ParentRecipe</key>
+        <string>com.github.denmoff.download.Twine2</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Processor</key>
+                <string>AppDmgVersioner</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>dmg_path</key>
+                    <string>%pathname%</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>AppPkgCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>app_path</key>
+                    <string>%pathname%/*.app</string>
+                </dict>
+            </dict>
+        </array>
+    </dict>
 </plist>
