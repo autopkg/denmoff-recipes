@@ -14,7 +14,7 @@
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
 	<key>Process</key>
-        <array>
+    <array>
         <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
@@ -37,6 +37,10 @@
         	   <string>%NAME%.zip</string>
         	</dict>
         </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
        <dict>
             <key>Processor</key>
             <string>Unarchiver</string>
@@ -48,10 +52,6 @@
                 <string>%RECIPE_CACHE_DIR%/App</string>
             </dict>
         </dict>
-        <dict>
-	<key>Processor</key>
-	<string>EndOfCheckPhase</string>
-        </dict>
-        </array>
+    </array>
 </dict>
 </plist>
